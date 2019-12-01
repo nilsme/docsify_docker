@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - master
+    - fix_push_registry
 
 jobs:
 
@@ -12,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1      
+    - uses: actions/checkout@v1
+            
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docs:latest
+    
     - name: Authentication to GitHub Packages
       run: docker login docker.pkg.github.com -u nilsme -p ${{ secrets.GITHUB_TOKEN }}
+    
     - name: Push the image to GitHub Packages
       run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:latest
