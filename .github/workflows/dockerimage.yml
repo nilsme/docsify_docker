@@ -18,5 +18,5 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docs:latest
     - name: Push the image to GitHub Packages
-      run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:latest
+      run: docker push docs:latest
       
