@@ -16,6 +16,7 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docs:$(date +%s)
+      run: docker build . --file Dockerfile --tag docs:latest
     - name: Push the image to GitHub Packages
-      run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:$(date +%s)
+      run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:latest
+      
