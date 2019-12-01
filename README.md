@@ -1,15 +1,18 @@
 # README
 
+Serving a local folder with docsify in a docker container.
+
 ## Usage
 
-Build the image.
+### Build image
 
 ```shell
 docker build -t docs .
 ```
 
-Run the image and mount volume from host. Replace
-`<folder_with_docs_on_host>` with your local folder name.
+### Run image
+
+Replace `<folder_with_docs_on_host>` with your local folder name.
 
 ```shell
 docker run \
@@ -22,6 +25,15 @@ docker run \
   docs docsify serve .
 ```
 
-## Features
+### Access
 
-> TODO
+The served folder is available at `http://localhost:3000`.
+
+### Stop container
+
+```shell
+docker stop docs
+```
+
+The container will be automatically removed after stop
+due to the `--rm` option.
