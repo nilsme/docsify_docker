@@ -14,9 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docs:$(date +%s)
+      run: docker build . --file Dockerfile --tag docs:latest
     - name: Authentication to GitHub Packages
       run: docker login docker.pkg.github.com -u nilsme -p ${{ secrets.GITHUB_TOKEN }}
     - name: Push the image to GitHub Packages
-      run: docker push docs:$(date +%s)
+      run: docker push docs:latest
       
