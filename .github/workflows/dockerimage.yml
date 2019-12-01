@@ -18,5 +18,7 @@ jobs:
     - name: Authentication to GitHub Packages
       run: docker login docker.pkg.github.com -u nilsme -p ${{ secrets.GITHUB_TOKEN }}
     - name: Push the image to GitHub Packages
-      run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:latest
-      
+      uses: nilsme/docsify_docker@master
+      with:
+        name: nilsme/docsify_docker/docs:latest
+        registry: docker.pkg.github.com
