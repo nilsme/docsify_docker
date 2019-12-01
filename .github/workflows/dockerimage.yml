@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v1
             
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nilsme/docs:latest
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/nilsme/docsify_docker/docs:latest
     
     - name: Authentication to GitHub Packages
       run: docker login docker.pkg.github.com -u nilsme -p ${{ secrets.GITHUB_TOKEN }}
