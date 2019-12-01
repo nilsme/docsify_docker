@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v1      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docs:latest
+      run: docker build . --file Dockerfile --tag docs:$(date +%s)
+    - name: Authentication to GitHub Packages
+      run: docker login docker.pkg.github.com -u nilsme -p ${{ secrets.GITHUB_TOKEN }}
     - name: Push the image to GitHub Packages
-      run: docker push docs:latest
+      run: docker push docs:$(date +%s)
       
