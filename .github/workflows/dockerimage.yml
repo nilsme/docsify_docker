@@ -13,7 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docs:$(date +%s)
-    - name: Push Docker image to packages
-      run: docker push docker.pkg.github.com/nilsme/docsify_docker/:$(date +%s)
+    - name: Push the image to GitHub Packages
+      run: docker push docker.pkg.github.com/nilsme/docsify_docker/docs:$(date +%s)
