@@ -18,7 +18,6 @@ Replace `<folder_with_docs_on_host>` with your local folder name.
 docker run \
   --name docs \
   --rm \
-  -i \
   -d \
   -p 3000:3000/tcp \
   --volume <folder_with_docs_on_host>:/srv/docs \
