@@ -7,7 +7,7 @@ Serving a local folder with docsify in a docker container.
 Replace `<folder_with_docs_on_host>` with your local folder
 name in `docker-compose.yml`.
 
-### Build and run image in background
+### Build and run container in background
 
 ```shell
 docker-compose up -d
@@ -27,7 +27,7 @@ docker-compose stop
 docker build -t docs .
 ```
 
-### Run image in background
+### Run container in background
 
 Replace `<folder_with_docs_on_host>` with your local folder name.
 
