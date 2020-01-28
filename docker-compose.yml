@@ -1,0 +1,11 @@
+version: '3'
+services:
+    docsify:
+        build: .
+        image: docs
+        container_name: docs
+        ports: 
+            - 3000:3000/tcp
+        volumes:
+            - <folder_with_docs_on_host>:/srv/docs
+        command: docsify serve .

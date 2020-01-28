@@ -2,7 +2,24 @@
 
 Serving a local folder with docsify in a docker container.
 
-## Usage
+## Use with docker-compose
+
+Replace `<folder_with_docs_on_host>` with your local folder
+name in `docker-compose.yml`.
+
+### Build and run image in background
+
+```shell
+docker-compose up -d
+```
+
+### Docker-compose stop container
+
+```shell
+docker-compose stop
+```
+
+## Use with docker
 
 ### Build image
 
@@ -10,7 +27,7 @@ Serving a local folder with docsify in a docker container.
 docker build -t docs .
 ```
 
-### Run image
+### Run image in background
 
 Replace `<folder_with_docs_on_host>` with your local folder name.
 
@@ -24,11 +41,7 @@ docker run \
   docs docsify serve .
 ```
 
-### Access
-
-The served folder is available at `http://localhost:3000`.
-
-### Stop container
+### Docker stop container
 
 ```shell
 docker stop docs
@@ -36,3 +49,7 @@ docker stop docs
 
 The container will be automatically removed after stop
 due to the `--rm` option.
+
+### Access
+
+The served folder is available at `http://localhost:3000`.
